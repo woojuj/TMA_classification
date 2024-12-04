@@ -1,0 +1,149 @@
+Contents of this script:
+#!/bin/zsh
+#SBATCH --job-name=tma
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=16GB
+#SBATCH --time=05:00:00
+#SBATCH --gres=gpu:1
+#SBATCH --partition=gpu
+#SBATCH --output=/home/wooju.chung/TMA/output_tma/Output_tma_%j.out
+#SBATCH --mail-type=FAIL,END
+#SBATCH --mail-user=wooju.chung@ucalgary.ca 
+
+echo "Contents of this script:"
+cat "${0}"  # Prints the contents of the script
+eval "$(/home/wooju.chung/software/miniconda3/bin/conda shell.bash hook)"
+conda activate enel645
+
+JOB_ID=$SLURM_JOB_ID  # job id for environment variable 
+
+python test.py "$JOB_ID"
+Torch Version: 2.5.1
+Device: cuda
+Dataset: Original Train Dataset (Before Split)
+  benign: 1475
+  tumor: 4226
+Dataset: Train Dataset (After Split)
+  benign: 1180
+  tumor: 3380
+Dataset: Test Dataset
+  benign: 295
+  tumor: 846
+Dataset: Validation Dataset
+  benign: 547
+  tumor: 447
+Model Name: EfficientNet
+Epoch 1/30
+--------------------
+Train Loss: 0.3851, Accuracy: 0.8967, Precision: 0.9019, Recall: 0.9657, F1: 0.9327
+Validation Loss: 0.8566, Accuracy: 0.6107, Precision: 0.5370, Recall: 0.9732, F1: 0.6921
+Model saved!
+Current Learning Rate: 0.001
+Epoch 2/30
+--------------------
+Train Loss: 0.3159, Accuracy: 0.9237, Precision: 0.9312, Recall: 0.9686, F1: 0.9495
+Validation Loss: 0.6982, Accuracy: 0.6559, Precision: 0.5674, Recall: 0.9888, F1: 0.7210
+Model saved!
+Current Learning Rate: 0.001
+Epoch 3/30
+--------------------
+Train Loss: 0.2794, Accuracy: 0.8623, Precision: 0.9859, Recall: 0.8260, F1: 0.8989
+Validation Loss: 0.4411, Accuracy: 0.8330, Precision: 0.7522, Recall: 0.9374, F1: 0.8347
+Model saved!
+Current Learning Rate: 0.0001
+Epoch 4/30
+--------------------
+Train Loss: 0.2042, Accuracy: 0.9500, Precision: 0.9707, Recall: 0.9615, F1: 0.9661
+Validation Loss: 0.5469, Accuracy: 0.7847, Precision: 0.6835, Recall: 0.9709, F1: 0.8022
+No improvement for 1 epoch.
+Current Learning Rate: 0.0001
+Epoch 5/30
+--------------------
+Train Loss: 0.1813, Accuracy: 0.9572, Precision: 0.9733, Recall: 0.9689, F1: 0.9711
+Validation Loss: 0.5157, Accuracy: 0.8119, Precision: 0.7159, Recall: 0.9642, F1: 0.8217
+No improvement for 2 epoch.
+Current Learning Rate: 0.0001
+Epoch 6/30
+--------------------
+Train Loss: 0.1654, Accuracy: 0.9627, Precision: 0.9771, Recall: 0.9725, F1: 0.9748
+Validation Loss: 0.4376, Accuracy: 0.8149, Precision: 0.7256, Recall: 0.9463, F1: 0.8214
+Model saved!
+Current Learning Rate: 1e-05
+Epoch 7/30
+--------------------
+Train Loss: 0.1383, Accuracy: 0.9651, Precision: 0.9829, Recall: 0.9698, F1: 0.9763
+Validation Loss: 0.3987, Accuracy: 0.8400, Precision: 0.7618, Recall: 0.9374, F1: 0.8405
+Model saved!
+Current Learning Rate: 1e-05
+Epoch 8/30
+--------------------
+Train Loss: 0.1452, Accuracy: 0.9680, Precision: 0.9781, Recall: 0.9787, F1: 0.9784
+Validation Loss: 0.4885, Accuracy: 0.7958, Precision: 0.7020, Recall: 0.9485, F1: 0.8069
+No improvement for 1 epoch.
+Current Learning Rate: 1e-05
+Epoch 9/30
+--------------------
+Train Loss: 0.1329, Accuracy: 0.9680, Precision: 0.9770, Recall: 0.9799, F1: 0.9784
+Validation Loss: 0.4768, Accuracy: 0.8099, Precision: 0.7172, Recall: 0.9530, F1: 0.8184
+No improvement for 2 epoch.
+Current Learning Rate: 1.0000000000000002e-06
+Epoch 10/30
+--------------------
+Train Loss: 0.1329, Accuracy: 0.9658, Precision: 0.9873, Recall: 0.9663, F1: 0.9767
+Validation Loss: 0.3730, Accuracy: 0.8451, Precision: 0.7738, Recall: 0.9262, F1: 0.8432
+Model saved!
+Current Learning Rate: 1.0000000000000002e-06
+Epoch 11/30
+--------------------
+Train Loss: 0.1286, Accuracy: 0.9680, Precision: 0.9810, Recall: 0.9757, F1: 0.9783
+Validation Loss: 0.4246, Accuracy: 0.8280, Precision: 0.7438, Recall: 0.9418, F1: 0.8312
+No improvement for 1 epoch.
+Current Learning Rate: 1.0000000000000002e-06
+Epoch 12/30
+--------------------
+Train Loss: 0.1261, Accuracy: 0.9689, Precision: 0.9787, Recall: 0.9793, F1: 0.9790
+Validation Loss: 0.4499, Accuracy: 0.8159, Precision: 0.7260, Recall: 0.9485, F1: 0.8225
+No improvement for 2 epoch.
+Current Learning Rate: 1.0000000000000002e-07
+Epoch 13/30
+--------------------
+Train Loss: 0.1296, Accuracy: 0.9689, Precision: 0.9796, Recall: 0.9784, F1: 0.9790
+Validation Loss: 0.4499, Accuracy: 0.8129, Precision: 0.7223, Recall: 0.9485, F1: 0.8201
+No improvement for 3 epoch.
+Current Learning Rate: 1.0000000000000002e-07
+Epoch 14/30
+--------------------
+Train Loss: 0.1220, Accuracy: 0.9671, Precision: 0.9812, Recall: 0.9743, F1: 0.9777
+Validation Loss: 0.4386, Accuracy: 0.8199, Precision: 0.7326, Recall: 0.9441, F1: 0.8250
+No improvement for 4 epoch.
+Current Learning Rate: 1.0000000000000002e-07
+Epoch 15/30
+--------------------
+Train Loss: 0.1297, Accuracy: 0.9671, Precision: 0.9859, Recall: 0.9695, F1: 0.9776
+Validation Loss: 0.3803, Accuracy: 0.8441, Precision: 0.7724, Recall: 0.9262, F1: 0.8423
+No improvement for 5 epoch.
+Current Learning Rate: 1.0000000000000004e-08
+Epoch 16/30
+--------------------
+Train Loss: 0.1273, Accuracy: 0.9682, Precision: 0.9784, Recall: 0.9787, F1: 0.9786
+Validation Loss: 0.4686, Accuracy: 0.8068, Precision: 0.7136, Recall: 0.9530, F1: 0.8161
+No improvement for 6 epoch.
+Current Learning Rate: 1.0000000000000004e-08
+Epoch 17/30
+--------------------
+Train Loss: 0.1316, Accuracy: 0.9691, Precision: 0.9787, Recall: 0.9796, F1: 0.9792
+Validation Loss: 0.4609, Accuracy: 0.8149, Precision: 0.7248, Recall: 0.9485, F1: 0.8217
+No improvement for 7 epoch.
+Current Learning Rate: 1.0000000000000004e-08
+Epoch 18/30
+--------------------
+Train Loss: 0.1424, Accuracy: 0.9686, Precision: 0.9793, Recall: 0.9784, F1: 0.9788
+Validation Loss: 0.4512, Accuracy: 0.8099, Precision: 0.7201, Recall: 0.9441, F1: 0.8170
+No improvement for 8 epoch.
+Early stopping triggered after 18 epochs
+Training completed.
+Test Loss: 0.1624
+Accuracy: 0.9334
+Precision: 0.9594, Recall: 0.9504, F1 Score: 0.9549
